@@ -11,6 +11,7 @@ public record Information(
 {
     public void ShowInformation()
     {
+        Console.Clear();
         string childs = string.Join(", ", children);
         string information =
             $"""
@@ -18,7 +19,6 @@ public record Information(
              id: {id}
              owner id: {ownerId}
              parent id: {parentId}
-             acess level: {accessLevel}
              acess level: {accessLevel}
              childrens: {(childs == "" ? "null" :childs)}
              """;
