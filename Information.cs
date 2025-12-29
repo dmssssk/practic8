@@ -1,25 +1,25 @@
 ﻿namespace practic_8;
 
 public record Information(
-    string accessLevel,
-    string id,
-    string name,
-    string parentId,
-    string ownerId,
-    string[] children
+    string AccessLevel,
+    string Id,
+    string Name,
+    string ParentId,
+    string OwnerId,
+    string[] Children
 )
 {
     public void ShowInformation()
     {
         Console.Clear();
-        string childs = string.Join(", ", children);
+        string childs = string.Join(", ", Children);
         string information =
             $"""
-             name: {name}
-             id: {id}
-             owner id: {ownerId}
-             parent id: {parentId}
-             acess level: {accessLevel}
+             name: {Name}
+             id: {Id}
+             owner id: {OwnerId}
+             parent id: {ParentId}
+             acess level: {AccessLevel}
              childrens: {(childs == "" ? "null" :childs)}
              """;
         
