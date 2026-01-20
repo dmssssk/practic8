@@ -93,7 +93,7 @@ public record SeadoxModel(
 
             else
             {
-                Console.Write($"{property.Name}: {value} \n");
+                Console.Write($"{property.Name}: {(value is ""?"null":value)} \n");
             }
             
         }
