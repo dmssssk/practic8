@@ -18,10 +18,15 @@ var options = new JsonSerializerOptions
     PropertyNameCaseInsensitive = true
 };
 
-Console.Write("id: ");
-string id = Console.ReadLine()!;
+// Console.Write("id: ");
+// string id = Console.ReadLine()!;
 
-var result = await http.GetFromJsonAsync<Information>($"{api}/{id}");
+// Console.Write(await http.GetStringAsync($"{api}/{id}"));
+Console.Write(await http.GetStringAsync($"{api}/{Debug.Id}"));
+Console.Write("\n\n\n");
+
+// var result = await http.GetFromJsonAsync<Information>($"{api}/{id}");
+var result = await http.GetFromJsonAsync<SeadoxInfo>($"{api}/{Debug.Id}");
 
 result.ShowInformation();
 
