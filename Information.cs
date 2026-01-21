@@ -15,18 +15,7 @@ public record SeadoxInfo(
 
 
 
-)
-{
-
-    public virtual void ShowInfo()
-    {
-        foreach (var property in GetType().GetProperties())
-        {
-            Console.Write($"{property.Name}: {property.GetValue(this)}");
-        }
-    }
-};
-
+);
 
 public record SeadoxModel(
     string Id,
@@ -53,49 +42,4 @@ public record SeadoxModel(
     ParentId,
     CreatedAt,
     UpdatedAt
-)
-{
-    
-    private void ShowSeadBoxInfo(SeadoxInfo subclass)
-    {
-        Console.Write("*\n");
-        foreach (var property in subclass.GetType().GetProperties())
-        {
-            Console.Write($"\t{property.Name}: {property.GetValue(this)} \n");
-        }
-        Console.Write("\n");
-    }
-    
-    public override void ShowInfo()
-    {
-        foreach (var property in GetType().GetProperties())
-        {
-            
-            if (property.GetValue(this) is var value && value.GetType().IsArray)
-            {
-                Console.Write($"{property.Name}: {value.GetType()} \n");
-                
-                
-                if (value.GetType() == typeof(SeadoxInfo[])) {
-                    foreach (var seadoxInfo in value as SeadoxInfo[])
-                    {
-                        ShowSeadBoxInfo(seadoxInfo);
-                    }
-                }
-
-                else {
-                    for (int i = 0; i < value.GetType().GetProperties().Length; i++) {
-                        Console.WriteLine($"\t{i}: {(value as Object[])[i]}\n");
-                    }
-                }
-
-            }
-
-            else
-            {
-                Console.Write($"{property.Name}: {(value is ""?"null":value)} \n");
-            }
-            
-        }
-    }
-};
+);

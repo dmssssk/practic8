@@ -21,9 +21,6 @@ var options = new JsonSerializerOptions
 Console.Write("id: ");
 string id = Console.ReadLine()!;
 
-Console.Write(await http.GetStringAsync($"{api}/{id}"));
-
 var result = await http.GetFromJsonAsync<SeadoxModel>($"{api}/{id}");
 
-result.ShowInfo();
-
+Printer.ShowInfo(result);
